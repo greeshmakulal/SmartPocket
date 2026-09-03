@@ -12,6 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.greeshma.smartpocket.data.preferences.UserPreferencesDataStore
 import com.greeshma.smartpocket.presentation.add.AddItemRoute
+import com.greeshma.smartpocket.presentation.auth.UnlockRoute
 import com.greeshma.smartpocket.presentation.home.ExpiringItemsScreen
 import com.greeshma.smartpocket.presentation.home.ExpiryCard
 import com.greeshma.smartpocket.presentation.home.MainScaffold
@@ -86,6 +87,17 @@ fun RootNavGraph() {
             ExpiringItemsScreen(
                 onBackClick = {
                     rootNavController.popBackStack()
+                }
+            )
+        }
+        composable(Screen.Unlock.route) {
+            UnlockRoute(
+                onAuthenticated = {
+                    rootNavController.navigate(Screen.Main.route) {
+                        popUpTo(Screen.Unlock.route) {
+                            inclusive = true
+                        }
+                    }
                 }
             )
         }

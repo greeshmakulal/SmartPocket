@@ -5,6 +5,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.outlined.Fingerprint
 import androidx.compose.material3.Icon
 import androidx.compose.ui.graphics.vector.ImageVector
 
@@ -49,6 +50,11 @@ sealed class Screen( val route: String,
         route ="Recent",
         title = "All Items",
         icon = Icons.Default.Add
+    )
+    object Unlock : Screen(
+        route = "unlock",
+        title = "Unlock",
+        icon = Icons.Outlined.Fingerprint
     )
 
 companion object
